@@ -8,7 +8,7 @@ class TodoContainer extends React.Component {
       {
         id: 1,
         title: "Setup development Environment for you're Mac",
-        completed: true,
+        completed: false,
       },
       {
         id: 2,
