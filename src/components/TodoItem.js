@@ -1,19 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-class TodoItem extends React.Component {
-  render() {
-    return (
-      <li>
-        <input
-          type="checkbox"
-          checked={this.props.todo.completed}
-          onChange={() => this.props.handleChangeProps(this.props.todo.id)}
-        />
-        {' '}
-        {this.props.todo.title}
-      </li>
-    );
-  }
+function TodoItem(props) {
+  const {
+    checked, title, handleChangeProps, id,
+  } = props;
+  return (
+    <li>
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={() => handleChangeProps(id)}
+      />
+      {' '}
+      {title}
+    </li>
+  );
 }
+
+TodoItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
+  handleChangeProps: PropTypes.func.isRequired,
+};
 
 export default TodoItem;
